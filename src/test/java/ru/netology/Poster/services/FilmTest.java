@@ -20,7 +20,7 @@ public class FilmTest {
     private Film film11 = new Film(11, "Душа", "семейный", false);
 
 
-    @Test
+    @Test //Добавление нового фильма
     public void addFilm() {
         movie.add(film7);
         movie.add(film8);
@@ -31,7 +31,7 @@ public class FilmTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
-    @Test
+    @Test //Вывод всех фильмов в порядке добавления
 
     public void outputOfAllMoviesInTheOrderOfAddition() {
         movie.add(film1);
@@ -49,7 +49,7 @@ public class FilmTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
-    @Test
+    @Test //Вывод максимального лимита* последних добавленных фильмов в обратном от добавления порядке
     public void inTheReverseOrderFromTheAddition() {
         movie.add(film1);
         movie.add(film2);

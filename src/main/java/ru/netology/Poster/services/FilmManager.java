@@ -4,15 +4,12 @@ public class FilmManager {
     private int countFilm = 10;
     private Film[] films = new Film[0];
 
-
     public FilmManager(int countMovie) {
         this.countFilm = countFilm;
     }
 
-
     public FilmManager() {
     }
-
 
     public void add(Film film) {
         Film[] tmp = new Film[films.length + 1];
@@ -22,8 +19,6 @@ public class FilmManager {
         tmp[tmp.length - 1] = film;
         films = tmp;
     }
-
-
     public Film[] findLastTen() {
         int resultLength = films.length;
         if (resultLength >= countFilm) {
@@ -39,11 +34,8 @@ public class FilmManager {
         return result;
     }
 
-
     public Film[] findAll() {
         return films;
-
-
     }
 }
 
