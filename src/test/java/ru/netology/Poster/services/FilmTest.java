@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 
 public class FilmTest {
-    FilmManager movie = new FilmManager();
+
 
     private Film film1 = new Film(1, "Бладшот", "боевик", false);
     private Film film2 = new Film(2, "Вперёд", "мультфильм", false);
@@ -20,8 +20,18 @@ public class FilmTest {
     private Film film11 = new Film(11, "Душа", "семейный", false);
 
 
+    @Test
+    public void nullMovie() {
+        FilmManager movie = new FilmManager();
+        Film[] expected = {};
+        Film[] actual = movie.findAll();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
     @Test //Добавление нового фильма
     public void addFilm() {
+        FilmManager movie = new FilmManager();
         movie.add(film7);
         movie.add(film8);
         movie.add(film9);
@@ -33,7 +43,8 @@ public class FilmTest {
 
     @Test //Вывод всех фильмов в порядке добавления
 
-    public void outputOfAllMoviesInTheOrderOfAddition() {
+    public void Limit10() {
+        FilmManager movie = new FilmManager();
         movie.add(film1);
         movie.add(film2);
         movie.add(film3);
@@ -49,8 +60,42 @@ public class FilmTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+    public void Limit11() {
+        FilmManager movie = new FilmManager();
+        movie.add(film1);
+        movie.add(film2);
+        movie.add(film3);
+        movie.add(film4);
+        movie.add(film5);
+        movie.add(film6);
+        movie.add(film7);
+        movie.add(film8);
+        movie.add(film9);
+        movie.add(film10);
+        movie.add(film11);
+        Film[] expected = {film1, film2, film3, film4, film5, film6, film7, film8, film9, film10, film11};
+        Film[] actual = movie.findAll();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    public void Limit5() {
+        FilmManager movie = new FilmManager();
+        movie.add(film1);
+        movie.add(film2);
+        movie.add(film3);
+        movie.add(film4);
+        movie.add(film5);
+        Film[] expected = {film1, film2, film3, film4, film5};
+        Film[] actual = movie.findAll();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
     @Test //Вывод максимального лимита* последних добавленных фильмов в обратном от добавления порядке
     public void inTheReverseOrderFromTheAddition() {
+        FilmManager movie = new FilmManager();
         movie.add(film1);
         movie.add(film2);
         movie.add(film3);
@@ -65,6 +110,24 @@ public class FilmTest {
         Film[] actual = movie.findLastTen();
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    @Test
+
+    public void Limit8() {
+        FilmManager movie = new FilmManager();
+        movie.add(film1);
+        movie.add(film2);
+        movie.add(film3);
+        movie.add(film4);
+        movie.add(film5);
+        movie.add(film6);
+        movie.add(film7);
+        movie.add(film8);
+        Film[] expected = {film8, film7, film6, film5, film4, film3, film2, film1};
+        Film[] actual = movie.findLastTen();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
 
 
 }
