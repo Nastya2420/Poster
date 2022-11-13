@@ -4,7 +4,7 @@ public class FilmManager {
     private int countFilm = 10;
     private Film[] films = new Film[0];
 
-    public FilmManager(int countMovie) {
+    public FilmManager(int countFilm) {
         this.countFilm = countFilm;
     }
 
