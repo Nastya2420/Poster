@@ -9,6 +9,7 @@ public class FilmManager {
     }
 
     public FilmManager() {
+        this.countFilm = 10;
     }
 
     public void add(Film film) {
@@ -19,19 +20,19 @@ public class FilmManager {
         tmp[tmp.length - 1] = film;
         films = tmp;
     }
+
     public Film[] findLastTen() {
-        int resultLength = films.length;
-        if (resultLength >= countFilm) {
-            resultLength = countFilm;
-        } else {
+        int resultLength;
+        if (films.length < 10) {
             resultLength = films.length;
+        } else
+            resultLength = 10;
+        Film[] tmp = new Film[resultLength];
+        for (int i = 0; i < tmp.length; i++) {
+            tmp[i] = films[films.length - i - 1];
+
         }
-        Film[] result = new Film[resultLength];
-        for (int i = 0; i < films.length; i++) {
-            int index = films.length - i - 1;
-            result[i] = films[index];
-        }
-        return result;
+        return tmp;
     }
 
     public Film[] findAll() {

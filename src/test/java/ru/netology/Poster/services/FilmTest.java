@@ -128,6 +128,57 @@ public class FilmTest {
         Assertions.assertArrayEquals(expected, actual);
     }
 
+    @Test
+
+    public void Limit3() {
+        FilmManager movie = new FilmManager();
+        movie.add(film1);
+        movie.add(film2);
+        movie.add(film3);
+        Film[] expected = {film3, film2, film1};
+        Film[] actual = movie.findLastTen();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+    @Test
+
+    public void LimitMax () {
+        FilmManager movie = new FilmManager();
+        movie.add(film1);
+        movie.add(film2);
+        movie.add(film3);
+        movie.add(film4);
+        movie.add(film5);
+        movie.add(film6);
+        movie.add(film7);
+        movie.add(film8);
+        movie.add(film9);
+        movie.add(film10);
+        Film[] expected = { film10, film9, film8, film7, film6, film5, film4, film3, film2, film1};
+        Film[] actual = movie.findLastTen();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+
+    public void aboveTheLimit () {
+        FilmManager movie = new FilmManager();
+        movie.add(film1);
+        movie.add(film2);
+        movie.add(film3);
+        movie.add(film4);
+        movie.add(film5);
+        movie.add(film6);
+        movie.add(film7);
+        movie.add(film8);
+        movie.add(film9);
+        movie.add(film10);
+        movie.add(film11);
+        Film[] expected = {film11, film10, film9, film8, film7, film6, film5, film4, film3, film2, film1};
+        Film[] actual = movie.findLastTen();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+
+
 
 
 }
