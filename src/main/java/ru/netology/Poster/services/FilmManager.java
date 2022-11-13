@@ -9,7 +9,7 @@ public class FilmManager {
     }
 
     public FilmManager() {
-        this.countFilm = 10;
+
     }
 
     public void add(Film film) {
@@ -23,10 +23,10 @@ public class FilmManager {
 
     public Film[] findLastTen() {
         int resultLength;
-        if (films.length < 10) {
+        if (films.length < countFilm) {
             resultLength = films.length;
         } else
-            resultLength = 10;
+            resultLength = countFilm;
         Film[] tmp = new Film[resultLength];
         for (int i = 0; i < tmp.length; i++) {
             tmp[i] = films[films.length - i - 1];
